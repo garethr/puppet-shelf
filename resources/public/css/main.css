@@ -1,0 +1,59 @@
+body {
+  font-family: verdana; 
+  font-size: 1.2em;
+  color: #EFEFEF;
+  background: #222;
+}
+ul li {
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid #333;
+  background: #FFF;
+  box-shadow: 4px 4px 3px 0 #151515;
+  margin: 0 4px 14px 0;
+}
+ul li span {
+  text-align: center;
+  display: block;
+  padding-top: 40px;
+  height: 60px;
+}
+
+.scale0 {
+  background: rgba(64,121,44, 0);
+}
+.scale1 {
+  background: rgba(64,121,44, 0.2);
+}
+.scale2 {
+  background: rgba(64,121,44, 0.4);
+}
+.scale3 {
+  background: rgba(64,121,44, 0.6);
+}
+.scale4 {
+  background: rgba(64,121,44, 0.8);
+}
+.scale5 {
+  background: rgba(64,121,44, 1);
+}
+
+.failures.scale0 {
+  background: rgba(145,1,12, 0);
+}
+.failures.scale1 {
+  background: rgba(145,1,12, 0.2);
+}
+.failures.scale2 {
+  background: rgba(145,1,12, 0.4);
+}
+.failures.scale3 {
+  background: rgba(145,1,12, 0.6);
+}
+.failures.scale4 {
+  background: rgba(145,1,12, 0.8);
+}
+.failures.scale5 {
+  background: rgba(145,1,12, 1);
+}
