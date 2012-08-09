@@ -6,6 +6,8 @@ state of your puppet agents. This focuses on two things I think are
 important; puppet run time and number of failures during a run. It looks
 something like this:
 
+![Sample Dashboard with five nodes](https://raw.github.com/garethr/puppet-shelf/master/screenshot.png)
+
 ## Usage
 
 The report processor is very simple. It formats the report as a small
