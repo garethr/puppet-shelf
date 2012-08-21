@@ -17,7 +17,7 @@ just drop the shelf module in your Puppet modules directory.
 
 The service is written in Clojure and uses Redis to store run
 information. The provided manifests and Vagrantfile should get you up
-and running with an Ubuntu 12.04 machine if that's your thing. Runnin
+and running with an Ubuntu 12.04 machine if that's your thing. Running
 the service is then as simple as:
 
 ```bash
