@@ -6,7 +6,8 @@
         [clojure.data.json :only (read-json)]
         [hiccup.page :only [include-css html5]]))
 
-(defmacro dbg[x] `(let [x# ~x] (println "dbg:" '~x "=" x#) x#))
+(defmacro dbg[x]
+  `(let [x# ~x] (println "dbg:" '~x "=" x#) x#))
 
 (defpartial layout [& content]
   (html5
@@ -23,17 +24,14 @@
         (< input 60) 2
         (< input 120) 3
         (< input 300) 4
-        :else 5
-))
+        :else 5))
 
 (def redis-config
-  {:host "127.0.0.1" :port 6379 :db 0}
-)
+  {:host "127.0.0.1" :port 6379 :db 0})
 
 (defn scale-failures [input]
   (cond (< input 1) 0
-        (>= input 1) 5
-))
+        (>= input 1) 5))
 
 (defpartial display-host [host-name]
   (try
@@ -43,8 +41,7 @@
           [:span {:class (str "scale" (scale-time (Float/parseFloat time-taken)))} time-taken "s"]
           [:span {:class (str "failures scale" (scale-failures (Integer/parseInt failures)))} failures]]))
     (catch NullPointerException e
-      "")
-    ))
+      "")))
 
 (defpartial display-host-list [hosts]
   [:ul
