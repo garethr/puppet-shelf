@@ -43,31 +43,24 @@
     (catch NullPointerException e "")))
 
 (defpartial display-host-list [hosts]
-  [:ul
-    (map display-host hosts)])
+  [:ul (map display-host hosts)])
 
 (defpage "/" []
         (redis/with-server redis-config
-          (do
-            (let [hosts (redis/smembers "hosts")]
-              (layout
-                (display-host-list hosts))))))
+          (let [hosts (redis/smembers "hosts")]
+            (layout (display-host-list hosts)))))
 
 (defpage "/hosts" []
-        (resp/redirect "/"))
+  (resp/redirect "/"))
 
 (defpage "/hosts/:title" {title :title}
         (redis/with-server redis-config
-          (do
-            (layout
-              (display-host-list [title])))))
+          (layout (display-host-list [title]))))
 
 (defpage [:post "/reports"] {:as report-json}
         (redis/with-server redis-config
-          (do
-            (let [report (read-json (:req-body report-json))]
-              (redis/sadd "hosts" (:host report))
-              (redis/lpush (str "time:" (:host report)) (:time report))
-              (redis/lpush (str "failures:" (:host report)) (:failures report))
-              (str "OK")
-        ))))
+          (let [report (read-json (:req-body report-json))]
+            (redis/sadd "hosts" (:host report))
+            (redis/lpush (str "time:" (:host report)) (:time report))
+            (redis/lpush (str "failures:" (:host report)) (:failures report))
+            (str "OK"))))
