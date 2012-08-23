@@ -40,8 +40,7 @@
       [:li
        [:span {:class (str "scale" (scale-time (Float/parseFloat time-taken)))} time-taken "s"]
        [:span {:class (str "failures scale" (scale-failures (Integer/parseInt failures)))} failures]])
-    (catch NullPointerException e
-      "")))
+    (catch NullPointerException e "")))
 
 (defpartial display-host-list [hosts]
   [:ul
