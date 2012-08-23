@@ -35,11 +35,11 @@
 
 (defpartial display-host [host-name]
   (try
-    (let [failures (redis/lindex (str "failures:" host-name) 0)]
-      (let [time-taken (redis/lindex (str "time:" host-name) 0)]
-        [:li
-          [:span {:class (str "scale" (scale-time (Float/parseFloat time-taken)))} time-taken "s"]
-          [:span {:class (str "failures scale" (scale-failures (Integer/parseInt failures)))} failures]]))
+    (let [failures (redis/lindex (str "failures:" host-name) 0)
+          time-taken (redis/lindex (str "time:" host-name) 0)]
+      [:li
+       [:span {:class (str "scale" (scale-time (Float/parseFloat time-taken)))} time-taken "s"]
+       [:span {:class (str "failures scale" (scale-failures (Integer/parseInt failures)))} failures]])
     (catch NullPointerException e
       "")))
 
