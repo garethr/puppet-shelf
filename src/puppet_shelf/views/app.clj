@@ -43,7 +43,9 @@
     (catch NullPointerException e "")))
 
 (defpartial display-host-list [hosts]
-  [:ul (map display-host hosts)])
+  [:ul
+   (doseq [host hosts]
+     (display-host host))])
 
 (defpage "/" []
         (redis/with-server redis-config
